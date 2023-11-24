@@ -8,25 +8,21 @@ import controller.Controller
 
 class MainActivity : AppCompatActivity() {
     lateinit var controller : Controller
-    private lateinit var bindig : ActivityMainBinding
-
+    lateinit var binding : ActivityMainBinding
+    // lateinit var recyclerView: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
-        bindig = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(bindig.root)
-
-        init()
+        binding =ActivityMainBinding.inflate( layoutInflater)
+        setContentView( binding.root)
+        init() //inicializo la clase
     }
-
-    private fun init(){
-        initReciclerView()
-        controller = Controller(this)
-        //dentro del controller crearemos el adapter y se lo pasremos al recyclerView
+    fun init(){
+        initRecyclerView()
+        controller = Controller( this) //Creamos el controler
         controller.setAdapter()
+        //controller.loggOut() //muestro el log en pantalla
     }
-
-    private fun initReciclerView() {
-        //La forma de pintar las view sera por medio de un lineLayou
-        bindig.myRecyclerView.layoutManager = LinearLayoutManager(this)
+    private fun initRecyclerView() {
+        binding.myRecyclerView.layoutManager = LinearLayoutManager( this)
     }
 }
