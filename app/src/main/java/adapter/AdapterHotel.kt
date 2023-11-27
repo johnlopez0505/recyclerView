@@ -6,14 +6,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.john.recicleview.R
 import models.Hotel
 
-class AdapterHotel( var listHotel : MutableList<Hotel>) : RecyclerView.Adapter<ViewHHotel>(){
+class AdapterHotel(
+    var listHotel : MutableList<Hotel>,
+    var deleteOnClick: (Int) -> Unit,
+    var updateOnClick: (Int) -> Unit
+) : RecyclerView.Adapter<ViewHHotel>(){
     /*
     Método que crea la view del ViewHolderHotel
     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHHotel {
         val layoutInflater = LayoutInflater.from(parent. context)//objeto para crear la vista.
         val layoutItemHotel = R.layout. item_hotel //accedo al xml del item a crear.
-        return ViewHHotel(layoutInflater.inflate(layoutItemHotel, parent, false))
+        return ViewHHotel(
+            layoutInflater.inflate(layoutItemHotel, parent, false),
+            deleteOnClick,
+            updateOnClick
+        )
+
     }
     /*
     Este método, debe renderizar todos los datos o propiedades de cada hotel con la view.
@@ -21,6 +30,8 @@ class AdapterHotel( var listHotel : MutableList<Hotel>) : RecyclerView.Adapter<V
     */
     override fun onBindViewHolder(holder: ViewHHotel, position: Int) {
         holder.renderize( listHotel.get(position)) //renderizamos la view.
+        holder.deleteOnClick(position)
+        holder.updateOnClick(position)
     }
     /*
     Este método, devuelve el número de objetos a representar en el recyclerView.
