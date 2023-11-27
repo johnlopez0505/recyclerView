@@ -1,12 +1,14 @@
-package adapter
+package com.john.recicleview.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.john.recicleview.databinding.ItemHotelBinding
-import models.Hotel
+import com.john.recicleview.models.Hotel
 
-class ViewHHotel (view: View,var deleteOnClick: (Int) -> Unit,var updateOnClick: (Int) -> Unit) : RecyclerView.ViewHolder (view){
+class ViewHHotel (view: View,var deleteOnClick: (Int) -> Unit,
+                  var updateOnClick: (Int) -> Unit):
+    RecyclerView.ViewHolder (view){
     lateinit var binding: ItemHotelBinding
     init {
         binding = ItemHotelBinding.bind(view)
@@ -25,7 +27,7 @@ class ViewHHotel (view: View,var deleteOnClick: (Int) -> Unit,var updateOnClick:
         setOnClickListener(adapterPosition)
     }
 
-    private fun setOnClickListener(position : Int) {
+    fun setOnClickListener(position : Int) {
         binding.btnEdit.setOnClickListener {
             updateOnClick(position )
         }

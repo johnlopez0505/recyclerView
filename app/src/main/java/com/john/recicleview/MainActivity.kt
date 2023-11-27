@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.john.recicleview.databinding.ActivityMainBinding
-import controller.Controller
+import com.john.recicleview.controller.Controller
 
 class MainActivity : AppCompatActivity() {
     lateinit var controller : Controller

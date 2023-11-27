@@ -1,10 +1,10 @@
-package adapter
+package com.john.recicleview.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.john.recicleview.R
-import models.Hotel
+import com.john.recicleview.models.Hotel
 
 class AdapterHotel(
     var listHotel : MutableList<Hotel>,
@@ -30,8 +30,13 @@ class AdapterHotel(
     */
     override fun onBindViewHolder(holder: ViewHHotel, position: Int) {
         holder.renderize( listHotel.get(position)) //renderizamos la view.
-        holder.deleteOnClick(position)
-        holder.updateOnClick(position)
+        holder.itemView.setOnClickListener {
+            updateOnClick(position)
+        }
+        holder.itemView.setOnLongClickListener {
+            deleteOnClick(position)
+            true
+        }
     }
     /*
     Este método, devuelve el número de objetos a representar en el recyclerView.

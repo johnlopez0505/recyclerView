@@ -1,6 +1,6 @@
-package object_model
+package com.john.recicleview.object_model
 
-import models.Hotel
+import com.john.recicleview.models.Hotel
 
 object Repository {
     val listHotels : List<Hotel> = listOf(
@@ -40,10 +40,12 @@ object Repository {
             "https://www.tuscasasrurales.com/imagenes/galeria/8619_g28/ico_8619.jpg"
         ),
         Hotel(
-            "La Casa de juan" ,
+            "Parador de Jaén" ,
             "jaen",
             "jaen" ,
             "645 65 56 56",
-            "https://www.tuscasasrurales.com/imagenes/galeria/8619_g28/ico_8619.jpg"
-        ))
+            "https://paradores.es/sites/default/files/images/" +
+                    "Parador%20de%20Ja%C3%A9n%2047%20ExterioresOK.jpg"
+        )
+    )
 }

@@ -1,4 +1,4 @@
-package models
+package com.john.recicleview.models
 
 class Hotel (
     var name: String,

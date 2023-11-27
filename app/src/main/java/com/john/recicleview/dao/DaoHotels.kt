@@ -1,8 +1,8 @@
-package dao
+package com.john.recicleview.dao
 
-import interfaceDao.InterfaceDao
-import models.Hotel
-import object_model.Repository
+import com.john.recicleview.interfaceDao.InterfaceDao
+import com.john.recicleview.models.Hotel
+import com.john.recicleview.object_model.Repository
 
 class DaoHotels private constructor(): InterfaceDao {
     companion object {
